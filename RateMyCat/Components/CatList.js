@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet, ListView, Button, ActivityIndicator, TextInput } from 'react-native';
 
 
-export default class CatList extends React.Component {
+export default class CatList extends Component {
     constructor(prop) {
         super(prop);
         this.state = {

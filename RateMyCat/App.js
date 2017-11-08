@@ -35,10 +35,10 @@ var styles = StyleSheet.create({
     },
     formContainer: {
         width: Dimensions.get('window').width,
-        height: 170,
+        height: 250,
         alignSelf: 'center',
         marginTop: 20,
-        borderColor: '#000000',
-        borderWidth: 4
+        borderColor: '#621515',
+        borderWidth: 3
     }
 });
