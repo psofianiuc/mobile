@@ -10,6 +10,7 @@ var {
 } = require('react-native');
 
 export default class App extends Component {
+
     constructor(props) {
         super(props);
     }
@@ -21,17 +22,10 @@ export default class App extends Component {
                 <View style={styles.formContainer}>
                     <CatForm/>
                 </View>
-                <View style={styles.buttonContainer}>
-                    <Button onPress={this._showCats} title="Show cats" color="#621515"/>
-                </View>
+                <CatList/>
             </View>
         );
     }
-
-    _showCats(event) {
-        console.log('Pressed!');
-    }
-
 }
 
 var styles = StyleSheet.create({

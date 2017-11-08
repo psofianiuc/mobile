@@ -33,7 +33,7 @@ export default class CatList extends Component {
     fetchData() {
         this.sleep(5000).then(() => {
             setTimeout(() => {
-                fetch("http://www.cs.ubbcluj.ro/~dan/ma/MMXVII/movies.json")
+                fetch("https://jsonplaceholder.typicode.com/todos")
                     .then((response) => {
                         if (response.status === 200) {
                             try {
@@ -51,7 +51,7 @@ export default class CatList extends Component {
                     .then((responseData) => {
                         if (responseData !== null) {
                             this.setState({
-                                dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+                                dataSource: this.state.dataSource.cloneWithRows(responseData),
                                 loaded: 1,
                             });
                         } else {
@@ -67,18 +67,20 @@ export default class CatList extends Component {
         });
     }
 
-    renderMovie(movie) {
-        return (<View>
-            <Text>{movie.releaseYear} - {movie.title}</Text>
+    renderStuff(todo) {
+        return (<View style={styles.rowStyle}>
+            <Text style={styles.rowTextStyle}>{todo.id} - {todo.title}</Text>
         </View>);
     }
 
     render() {
         if (this.state.loaded === 0) {
             return (
-                <View>
+                <View style={styles.container}>
                     <Text> Please wait!! </Text>
-                    <ActivityIndicator/>
+                    <View style={styles.activityContainer}>
+                        <ActivityIndicator/>
+                    </View>
                 </View>);
         } else if (this.state.loaded === 2) {
             return (
@@ -93,7 +95,7 @@ export default class CatList extends Component {
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderMovie}
+                renderRow={this.renderStuff}
                 style={styles.listView}
             />
         );
@@ -102,23 +104,26 @@ export default class CatList extends Component {
 
 var styles = StyleSheet.create({
     container: {
+        marginTop: 30,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#ffffff',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    activityContainer: {
+        marginTop: 15,
     },
     listView: {
-        paddingTop: 20,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#ffffff',
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    rowStyle: {
+        margin: 10,
+        borderBottomColor: '#000000',
+        paddingBottom: 10,
+        borderBottomWidth: 0.5,
     },
+    rowTextStyle: {
+        color: '#621515',
+        fontSize: 14,
+    }
 });

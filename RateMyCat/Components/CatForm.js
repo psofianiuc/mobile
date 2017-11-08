@@ -4,22 +4,37 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, Button, TextInput } from 'react-native';
 
+var SendIntentAndroid = require('react-native-send-intent');
 
 export default class CatForm extends Component {
+
+    catname = ""
+    age = ""
+    color = ""
+
+
+    constructor(){
+        super();
+        this.state = {name : "", age :"", color : ""};
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <TextInput
                     style={styles.textInputStyle}
                     placeholder="Cat name"
+                    onChangeText={(text) => catname = text}
                 />
                 <TextInput
                     style={styles.textInputStyle}
                     placeholder="Cat age"
+                    onChangeText={(text) => age = text}
                 />
                 <TextInput
                     style={styles.textInputStyle}
                     placeholder="Cat color"
+                    onChangeText={(text) => color = text}
                 />
                 <View style={styles.buttonContainer}>
                     <Button onPress={this._submit} title="Submit" color="#621515"/>
@@ -31,6 +46,9 @@ export default class CatForm extends Component {
 
     _submit(event) {
         console.log('Pressed!');
+        console.log(catname);
+        mess = catname + " " + age + " " + color;
+        SendIntentAndroid.sendMail("sofianiucpaula@gmail.com", "Subject test", mess);
     }
 
 }
