@@ -1,23 +1,44 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, Button, TextInput } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+import CatList from './Components/CatList'
+import NavigationBar from './Components/NavigationBar'
+import CatForm from './Components/CatForm'
+
+var {
+    Dimensions
+} = require('react-native');
+
+export default class App extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <NavigationBar/>
+                <View style={styles.formContainer}>
+                    <CatForm/>
+                </View>
+            </View>
+        );
+    }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+var styles = StyleSheet.create({
+    container: {
+        paddingTop: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
+    },
+    formContainer: {
+        width: Dimensions.get('window').width,
+        height: 170,
+        alignSelf: 'center',
+        marginTop: 20,
+        borderColor: '#000000',
+        borderWidth: 4
+    }
 });
