@@ -21,9 +21,17 @@ export default class App extends Component {
                 <View style={styles.formContainer}>
                     <CatForm/>
                 </View>
+                <View style={styles.buttonContainer}>
+                    <Button onPress={this._showCats} title="Show cats" color="#621515"/>
+                </View>
             </View>
         );
     }
+
+    _showCats(event) {
+        console.log('Pressed!');
+    }
+
 }
 
 var styles = StyleSheet.create({
@@ -31,7 +39,6 @@ var styles = StyleSheet.create({
         paddingTop: 0,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
     },
     formContainer: {
         width: Dimensions.get('window').width,
@@ -40,5 +47,23 @@ var styles = StyleSheet.create({
         marginTop: 20,
         borderColor: '#621515',
         borderWidth: 3
-    }
+    },
+    buttonContainer: {
+        marginTop: 20,
+        backgroundColor: '#ffffff',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: 150,
+        height: 45,
+        borderColor: '#621515',
+        borderWidth: 2,
+        borderRadius: 4,
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 10,
+        shadowOpacity: 0.25
+    },
 });

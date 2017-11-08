@@ -22,15 +22,17 @@ export default class CatForm extends Component {
                     placeholder="Cat color"
                 />
                 <View style={styles.buttonContainer}>
-                    <Button onPress={this._submit} title="Submit" accessibilityLabel="Tap on Me"/>
+                    <Button onPress={this._submit} title="Submit" color="#621515"/>
                 </View>
 
             </View>
         );
     }
+
     _submit(event) {
         console.log('Pressed!');
     }
+
 }
 
 
@@ -62,5 +64,12 @@ var styles = StyleSheet.create({
         borderColor: '#621515',
         borderWidth: 2,
         borderRadius: 4,
-    }
+        shadowColor: '#000000',
+        shadowOffset: {
+            width: 0,
+            height: 3
+        },
+        shadowRadius: 10,
+        shadowOpacity: 0.25
+    },
 });
