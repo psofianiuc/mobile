@@ -21,11 +21,6 @@ export default class ListScreen extends Component {
             </View>
         );
     }
-
-    _showList(event) {
-        console.log('Pressed!');
-    }
-
 }
 
 var styles = StyleSheet.create({
