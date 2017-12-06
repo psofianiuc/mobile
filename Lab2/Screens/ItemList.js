@@ -1,11 +1,16 @@
 /**
- * Created by admin on 08/11/2017.
+ * Created by admin on 05/12/2017.
  */
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, ListView, Button, ActivityIndicator, TextInput } from 'react-native';
+import {Text, View, StyleSheet, ListView, Button, ActivityIndicator } from 'react-native';
 
 
 export default class CatList extends Component {
+
+    static navigationOptions = {
+        title: 'List'
+    }
+
     constructor(prop) {
         super(prop);
         this.state = {
