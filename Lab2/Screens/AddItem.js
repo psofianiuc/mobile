@@ -7,15 +7,24 @@ import CustomDatePicker from '../Components/CustomDatePicker'
 
 export default class CatForm extends Component {
 
-    TrySomething = "";
-
     static navigationOptions = {
         title: 'Add cat'
     };
 
+    _submit() {
+        console.log("Button pressed")
+        console.log(this.state.catname);
+        console.log(this.state.catcolour);
+    }
+
     constructor(props){
         super(props);
-        this.state = {catname : "", catage :"", catcolour : "", date : {date:"2001-01-01"}};
+        this.state = {
+            catname : "",
+            catage :"",
+            catcolour : "",
+            date : {date:"2001-01-01"}
+        };
     }
 
     render() {
@@ -25,7 +34,7 @@ export default class CatForm extends Component {
                     <TextInput
                         style={styles.textInputStyle}
                         placeholder="Cat name"
-                        onChangeText={(text) => TrySomething = text}
+                        onChangeText={(text) => this.setState({catname: text})}
                     />
                     <TextInput
                         style={styles.textInputStyle}
@@ -44,17 +53,11 @@ export default class CatForm extends Component {
                     </View>
                 </View>
                 <View style={styles.buttonContainer}>
-                    <Button onPress={this._submit} title="Submit" color="#621515"/>
+                    <Button onPress={this._submit.bind(this)} title="Submit" color="#621515"/>
                 </View>
             </View>
         );
-    }
 
-    _submit(event) {
-        console.log('Pressed!');
-        // var datePicker = this.refs['DatePicker'];
-        // console.log(this.TrySomething);
-        console.log(this.refs);
     }
 
 }
