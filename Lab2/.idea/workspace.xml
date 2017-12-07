@@ -30,8 +30,8 @@
       <file leaf-file-name="AddItem.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Screens/AddItem.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+            <state relative-caret-position="417">
+              <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
               <folding>
                 <element signature="e#43#82#0" expanded="true" />
               </folding>
@@ -273,12 +273,12 @@
       <option name="presentableId" value="Default" />
       <updated>1512475000112</updated>
       <workItem from="1512475002922" duration="9404000" />
-      <workItem from="1512655295570" duration="560000" />
+      <workItem from="1512655295570" duration="1131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9964000" />
+    <option name="totallyTimeSpent" value="10535000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="19" y="43" width="1117" height="625" extended-state="0" />
@@ -398,8 +398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Screens/AddItem.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="58" column="10" lean-forward="true" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
+        <state relative-caret-position="417">
+          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
           <folding>
             <element signature="e#43#82#0" expanded="true" />
           </folding>

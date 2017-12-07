@@ -13,8 +13,15 @@ export default class CatForm extends Component {
 
     _submit() {
         console.log("Button pressed")
-        console.log(this.state.catname);
-        console.log(this.state.catcolour);
+        var RandomNumber = Math.floor(Math.random() * 10000) + 1 ;
+        if (this.state.catname != "" && this.state.catcolour != "" && this.state.catage != "") {
+            this.setState({currentNr: RandomNumber})
+            console.log(this.state.catname);
+            console.log(this.state.catage);
+            console.log(this.state.catcolour);
+            console.log(this.state.currentNr);
+        }
+
     }
 
     constructor(props){
@@ -23,7 +30,8 @@ export default class CatForm extends Component {
             catname : "",
             catage :"",
             catcolour : "",
-            date : {date:"2001-01-01"}
+            date : {date:"2001-01-01"},
+            currentNr : Math.floor(Math.random() * 10000) + 1,
         };
     }
 
