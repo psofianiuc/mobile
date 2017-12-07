@@ -13,13 +13,16 @@ export default class CatForm extends Component {
 
     _submit() {
         console.log("Button pressed")
-        var RandomNumber = Math.floor(Math.random() * 10000) + 1 ;
-        if (this.state.catname != "" && this.state.catcolour != "" && this.state.catage != "") {
+        let RandomNumber = Math.floor(Math.random() * 10000) + 1 ;
+        if (this.state.catname !== "" && this.state.catcolour !== "" && this.state.catage !== "") {
             this.setState({currentNr: RandomNumber})
-            console.log(this.state.catname);
-            console.log(this.state.catage);
-            console.log(this.state.catcolour);
-            console.log(this.state.currentNr);
+            let data = [this.state.catname, this.state.catage, this.state.catcolour];
+            AsyncStorage.setItem(this.state.currentNr.toString(), JSON.stringify(data))
+                .then(json => console.log('success!'))
+                .catch(error => console.log(error.message));
+            this.state.catname = "";
+            this.state.catcolour = "";
+            this.state.catage = "";
         }
 
     }
@@ -40,16 +43,19 @@ export default class CatForm extends Component {
             <View style={styles.container}>
                 <View style={styles.formContainer}>
                     <TextInput
+                        autoCorrect={false}
                         style={styles.textInputStyle}
                         placeholder="Cat name"
                         onChangeText={(text) => this.setState({catname: text})}
                     />
                     <TextInput
+                        autoCorrect={false}
                         style={styles.textInputStyle}
                         placeholder="Cat age"
                         onChangeText={(text) => this.setState({catage: text})}
                     />
                     <TextInput
+                        autoCorrect={false}
                         style={styles.textInputStyle}
                         placeholder="Cat color"
                         onChangeText={(text) => this.setState({catcolour: text})}

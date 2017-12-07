@@ -2,105 +2,66 @@
  * Created by admin on 05/12/2017.
  */
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, ListView, Button, ActivityIndicator } from 'react-native';
+import {Text, View, StyleSheet, ListView, AsyncStorage } from 'react-native';
 
 
 export default class CatList extends Component {
 
     static navigationOptions = {
         title: 'List'
-    }
+    };
 
     constructor(prop) {
         super(prop);
+        const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            dataSource: new ListView.DataSource({
-                rowHasChanged: (row1, row2) => row1 !== row2,
-            }),
-            loaded: 0,
+            dataSource: ds,
+            items: [],
+        };
+
+
+    }
+
+    componentDidMount = async () => {
+        try {
+            Promise.all(AsyncStorage.getAllKeys()
+                .then(ks =>
+                    ks.map(k =>
+                        AsyncStorage.getItem(k)
+                            .then(req => JSON.parse(req))
+                            .then(json => {
+                                this.state.items.push(json);
+                                this.setState({
+                                    dataSource: this.state.dataSource.cloneWithRows(this.state.items)
+                                });
+                            })
+                            .catch(error => console.log(error.message))
+                    )
+                )
+            );
+        } catch (error) {
+            console.log(error.message);
         }
-    }
-
-    componentDidMount() {
-        this.fetchData();
-    }
-
-    sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    showRetry() {
-        this.setState({
-            loaded: 2,
-        });
-    }
-
-    fetchData() {
-        fetch("https://jsonplaceholder.typicode.com/todos")
-            .then((response) => {
-                if (response.status === 200) {
-                    try {
-                        return response.json();
-                    } catch (e) {
-                        console.log("Unable to parse response: " + response, e);
-                        this.showRetry();
-                        return null;
-                    }
-                }
-                console.log("response: " + JSON.stringify(response));
-                this.showRetry();
-                return null;
-            })
-            .then((responseData) => {
-                if (responseData !== null) {
-                    this.setState({
-                        dataSource: this.state.dataSource.cloneWithRows(responseData),
-                        loaded: 1,
-                    });
-                } else {
-                    this.showRetry();
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-                this.showRetry();
-            })
-            .done();
-    }
-
-    renderStuff(todo) {
-        return (<View style={styles.rowStyle}>
-            <Text style={styles.rowTextStyle}>{todo.id} - {todo.title}</Text>
-        </View>);
-    }
+    };
 
     render() {
-        if (this.state.loaded === 0) {
-            return (
-                <View style={styles.container}>
-                    <Text> Please wait!! </Text>
-                    <View style={styles.activityContainer}>
-                        <ActivityIndicator/>
-                    </View>
-                </View>);
-        } else if (this.state.loaded === 2) {
-            return (
-                <View>
-                    <Text> The content is not available </Text>
-                    <Button title="Retry" onPress={() => {
-                        this.setState({loaded: 0});
-                        this.fetchData();
-                    }}/>
-                </View>);
-        }
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderStuff}
-                style={styles.listView}
+                renderRow={(data) => this.renderRow(data)}
             />
         );
     }
+
+    renderRow = (data) => {
+        console.log(data);
+        return (
+            <View style={styles.rowStyle}>
+                <Text style={styles.rowTextStyle}>{data[0]} - {data[1]}</Text>
+            </View>
+        );
+     }
+
 }
 
 var styles = StyleSheet.create({
