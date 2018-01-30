@@ -13,21 +13,24 @@ private let reuseIdentifier = "PSMenuItemCell"
 
 public enum PSMenuItem {
     case feedback
-    case logOut
+    case switchType
 }
 
 class ViewController: UIViewController {
     
-    @IBOutlet var menuItemCollectionCell: UICollectionView!
+    @IBOutlet var menuItemCollectionCell: UICollectionView!    
+    @IBOutlet var mainMenuTitleLabel: UILabel!
     
-    let userMenuItems = [PSMenuItem.feedback, PSMenuItem.logOut]
-    let adminMenuItems = [PSMenuItem.logOut]
+    let userMenuItems = [PSMenuItem.feedback, PSMenuItem.switchType]
+    let adminMenuItems = [PSMenuItem.switchType]
     
-    var menuItems = [PSMenuItem.logOut]
+    var menuItems = [PSMenuItem.switchType]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(CustomUserDefaults.shared.loginType)
+        
+        mainMenuTitleLabel.text = CustomUserDefaults.shared.loginType
+        
         if CustomUserDefaults.shared.loginType == UserType.admin {
             menuItems = adminMenuItems
         } else {
@@ -68,11 +71,11 @@ class ViewController: UIViewController {
         }
     }
     
-    func askToLogOut() {
-        let alertController = UIAlertController(title: "Are you sure?", message: "You are about to log out.", preferredStyle: .alert)
+    func askToSwitchType() {
+        let alertController = UIAlertController(title: "Are you sure?", message: "You are about to switch user type.", preferredStyle: .alert)
         
         let yes = UIAlertAction(title: "Yes", style: .default) { (action) in
-            print("Action for log out")
+            self.switchType()
         }
         alertController.addAction(yes)
         
@@ -80,6 +83,18 @@ class ViewController: UIViewController {
         alertController.addAction(no)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func switchType() {
+        if CustomUserDefaults.shared.loginType == UserType.user {
+            CustomUserDefaults.shared.loginType = UserType.admin
+            menuItems = adminMenuItems
+        } else {
+            CustomUserDefaults.shared.loginType = UserType.user
+            menuItems = userMenuItems
+        }
+        mainMenuTitleLabel.text = CustomUserDefaults.shared.loginType
+        menuItemCollectionCell.reloadData()
     }
     
 }
@@ -117,8 +132,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         switch menuItems[indexPath.row] {
         case .feedback:
             self.showFeedbackMail()
-        case .logOut:
-            self.askToLogOut()
+        case .switchType:
+            self.askToSwitchType()
         }
     }
 }

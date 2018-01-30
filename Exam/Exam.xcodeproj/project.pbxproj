@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		02E5F85B8DDE92E180B1E624 /* Pods_Exam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B575EEE376831F7B6BEF6DD /* Pods_Exam.framework */; };
+		847C2AF12020692400BF82AD /* Exam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 847C2AEF2020692400BF82AD /* Exam.xcdatamodeld */; };
 		84A76266201EFADB006705A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A76265201EFADB006705A6 /* AppDelegate.swift */; };
 		84A76268201EFADB006705A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A76267201EFADB006705A6 /* ViewController.swift */; };
 		84A7626B201EFADB006705A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A76269201EFADB006705A6 /* Main.storyboard */; };
-		84A7626E201EFADB006705A6 /* Exam.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84A7626C201EFADB006705A6 /* Exam.xcdatamodeld */; };
 		84A76270201EFADB006705A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A7626F201EFADB006705A6 /* Assets.xcassets */; };
 		84A76273201EFADB006705A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A76271201EFADB006705A6 /* LaunchScreen.storyboard */; };
 		84A76280201EFE20006705A6 /* PSMenuItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A7627E201EFE20006705A6 /* PSMenuItemViewCell.swift */; };
@@ -22,11 +22,11 @@
 /* Begin PBXFileReference section */
 		1B575EEE376831F7B6BEF6DD /* Pods_Exam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Exam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		404B0C983F935082D99421DA /* Pods-Exam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Exam.release.xcconfig"; path = "Pods/Target Support Files/Pods-Exam/Pods-Exam.release.xcconfig"; sourceTree = "<group>"; };
+		847C2AF02020692400BF82AD /* Exam.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Exam.xcdatamodel; sourceTree = "<group>"; };
 		84A76262201EFADB006705A6 /* Exam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Exam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A76265201EFADB006705A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A76267201EFADB006705A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84A7626A201EFADB006705A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		84A7626D201EFADB006705A6 /* Exam.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Exam.xcdatamodel; sourceTree = "<group>"; };
 		84A7626F201EFADB006705A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84A76272201EFADB006705A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84A76274201EFADB006705A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,6 +65,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		847C2AEE202068CB00BF82AD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				847C2AEF2020692400BF82AD /* Exam.xcdatamodeld */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		84A76259201EFADB006705A6 = {
 			isa = PBXGroup;
 			children = (
@@ -86,17 +95,17 @@
 		84A76264201EFADB006705A6 /* Exam */ = {
 			isa = PBXGroup;
 			children = (
-				84A7627D201EFDDA006705A6 /* Menu */,
-				84A7627C201EFBCD006705A6 /* Helper */,
-				84A7627B201EFBC5006705A6 /* Admin */,
-				84A7627A201EFBBA006705A6 /* User */,
+				847C2AEE202068CB00BF82AD /* Model */,
+				84A76274201EFADB006705A6 /* Info.plist */,
 				84A76265201EFADB006705A6 /* AppDelegate.swift */,
 				84A76267201EFADB006705A6 /* ViewController.swift */,
-				84A76269201EFADB006705A6 /* Main.storyboard */,
 				84A7626F201EFADB006705A6 /* Assets.xcassets */,
+				84A7627B201EFBC5006705A6 /* Admin */,
+				84A7627C201EFBCD006705A6 /* Helper */,
 				84A76271201EFADB006705A6 /* LaunchScreen.storyboard */,
-				84A76274201EFADB006705A6 /* Info.plist */,
-				84A7626C201EFADB006705A6 /* Exam.xcdatamodeld */,
+				84A76269201EFADB006705A6 /* Main.storyboard */,
+				84A7627D201EFDDA006705A6 /* Menu */,
+				84A7627A201EFBBA006705A6 /* User */,
 			);
 			path = Exam;
 			sourceTree = "<group>";
@@ -256,10 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847C2AF12020692400BF82AD /* Exam.xcdatamodeld in Sources */,
 				84A76283201F0011006705A6 /* CustomUserDefaults.swift in Sources */,
 				84A76268201EFADB006705A6 /* ViewController.swift in Sources */,
 				84A76280201EFE20006705A6 /* PSMenuItemViewCell.swift in Sources */,
-				84A7626E201EFADB006705A6 /* Exam.xcdatamodeld in Sources */,
 				84A76266201EFADB006705A6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,13 +458,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		84A7626C201EFADB006705A6 /* Exam.xcdatamodeld */ = {
+		847C2AEF2020692400BF82AD /* Exam.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				84A7626D201EFADB006705A6 /* Exam.xcdatamodel */,
+				847C2AF02020692400BF82AD /* Exam.xcdatamodel */,
 			);
-			currentVersion = 84A7626D201EFADB006705A6 /* Exam.xcdatamodel */;
-			path = Exam.xcdatamodeld;
+			currentVersion = 847C2AF02020692400BF82AD /* Exam.xcdatamodel */;
+			name = Exam.xcdatamodeld;
+			path = ../Model/Exam.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

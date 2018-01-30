@@ -14,8 +14,8 @@ struct UserDefaultsKeys {
 }
 
 struct UserType {
-    static let user = "user"
-    static let admin = "admin"
+    static let user = "User"
+    static let admin = "Admin"
 }
 
 class CustomUserDefaults: UserDefaults {

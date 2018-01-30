@@ -28,8 +28,8 @@ class PSMenuItemViewCell: UICollectionViewCell {
         switch type {
         case .feedback:
             title = "Feedback"
-        case .logOut:
-            title = "Log out"
+        case .switchType:
+            title = "Switch user type"
         }
         
         menuItemTitle.text = title
